@@ -1,0 +1,215 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #ffffff;
+    height: 100%;
+    width: 100%;
+    font-family: 'Lato';
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ----------------------------------------------------------- */
+
+/* 2 DIVS */
+
+/* ----------------------------------------------------------- */
+
+.container-contact {
+    height: 93%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.info,
+.map-button {
+    width: 40vw;
+    height: 60vh;
+    background-color: white;
+    margin: 2% 1.35%;
+    position: relative;
+}
+
+
+/******* INFORMATION DIV *******/
+
+.info {
+    border: 1px solid #969696;
+    box-shadow: 10px 10px #99d5c9;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.info-inside {
+    text-align: center;
+    align-self: center;
+}
+
+
+h3,
+p {
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+    overflow-wrap: break-word;
+}
+
+
+h3 {
+    line-height: 1.3;
+}
+
+p {
+    line-height: 1.8;
+}
+
+
+.info h3 {
+    font-family: Arial;
+    font-size: 2.8em;
+    font-weight: 800;
+}
+
+
+.info p {
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+
+
+/******* MAP DIV *******/
+
+.map {
+    height: 80%;
+    width: 100%;
+    border: 0.025px solid #969696;
+}
+
+
+.button {
+    position: absolute;
+    height: 13%;
+    width: 100%;
+    background: #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+    bottom: 0;
+}
+
+    .button > a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .button p {
+        text-align: center;
+        font-family: 'Arial';
+        color: #fff;
+        font-size: 1.6em;
+        font-weight: 800;
+    }
+
+/* ----------------------------------------------------------- */
+
+/* MEDIA QUERY RESPONSIVENESS */
+
+/* ----------------------------------------------------------- */
+
+/******* < 1200px  *******/
+
+@media screen and (max-width: 1200px) {
+    .info,
+    .map-button {
+        width: 43vw;
+    }
+}
+
+
+/******* < 992px  *******/
+
+@media screen and (max-width: 992px) {
+    .info h3 {
+        font-size: 2.5em;
+    }
+}
+
+
+/******* < 768px  *******/
+
+@media screen and (max-width: 768px) {
+    .container {
+        height: 93%;
+        align-content: flex-end;
+        padding: 2%;
+    }
+
+    .info,
+    .map-button {
+        width: 85vw;
+        height: 38vh;
+    }
+
+    .map {
+        height: 100%;
+    }
+
+    .button {
+        display: none;
+    }
+
+    .info {
+        box-shadow: 0 0;
+        margin-top: 50px;
+    }
+
+        .info p {
+            font-size: 1.1em;
+        }
+
+        .info h3 {
+            display: none;
+        }
+
+    .footer {
+        height: 7%;
+        top: 93%;
+    }
+
+}
+
+
+/******* < 576px  *******/
+
+@media screen and (max-width: 576px) {
+    .info,
+    .map-button {
+        width: 85vw;
+        height: 40vh;
+    }
+
+        .info p {
+            font-size: 1em;
+        }
+
+    .info {
+        margin-top: 50px;
+    }
+
+}

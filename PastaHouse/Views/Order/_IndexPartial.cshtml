@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+    PastaHouse.Models.Cart cart = Session["cart"] as PastaHouse.Models.Cart;
+}
+
+<h4>Wybrane dania:</h4>
+@{
+    List<int> dishesIDs = new List<int>();
+
+    foreach (PastaHouse.Models.Dish dish in cart.Dishes)
+    {
+        if (!(dishesIDs.Contains(dish.DishId)))
+        {
+            var count = cart.Dishes.FindAll(x => x.DishId == dish.DishId).Count;
+            <div class="row dish-line">
+                <div class="col-8">
+                    <div class="row dish-info">
+                        <div class="col-12 col-sm-6">@dish.Name</div>
+                        <div class="col-12 col-sm-6">@count szt.</div>
+                    </div>
+                </div>
+                <div class="col-4 dish-buttons">
+                    @Ajax.ActionLink($"+", "AddProduct", "Order", new { id = dish.DishId, name = dish.Name, category = dish.Category, subcategory = dish.Subcategory, ingredients = dish.Ingredients, price = dish.Price }, new AjaxOptions() { UpdateTargetId = "chosen-dishes" }, new { @class = "btn btn-success btn-primary btn-plus", id = "plus" + dish.DishId })
+                    @Ajax.ActionLink($"-", "DeleteProduct", "Order", new { id = dish.DishId }, new AjaxOptions() { UpdateTargetId = "chosen-dishes" }, new { @class = "btn btn-danger btn-primary btn-minus", id = "minus" + dish.DishId })
+                </div>
+            </div>
+        }
+
+        dishesIDs.Add(dish.DishId);
+    }
+    
+    <div class="col-12 font-weight-bold" id="price-total">Cena końcowa: @cart.TotalPrice zł</div>
+}
+

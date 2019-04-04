@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Rezerwacja";
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/reserve.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container-fluid my-container">
+    <div class="info">
+        <div class="info-inside">
+            <h3 class="my-h3">Zarezerwuj stolik</h3>
+
+            @using (Ajax.BeginForm("ShowAvailableTables", "Reservation", new AjaxOptions()
+            {
+                UpdateTargetId = "availableTablesList",
+                LoadingElementId = "loading",
+                HttpMethod = "Post"
+            }))
+
+            {
+                <h5>Wybierz dzień:</h5>
+                <input type="date" name="date" id="datePicker" class="form-control" />
+                <br /><br />
+                <h5>Wybierz godzinę:</h5>
+                <select name="time" class="form-control">
+                    <option value="10:00">10:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="20:00">20:00</option>
+                </select>
+                <br />
+                <input type="submit" value="Sprawdź dostępność" class="btn btn-info button" />
+            }
+
+            <div id="loading" style="display:none;">
+                <img src="~/Resources/img/tail-spin.svg" width="60" alt="Loading animation" />
+            </div>
+
+            <br />
+            <div id="availableTablesList"></div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/reservation.js"></script>

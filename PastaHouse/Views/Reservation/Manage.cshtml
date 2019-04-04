@@ -1,0 +1,32 @@
+﻿@model List<PastaHouse.Models.Reservation>
+@{
+    ViewBag.Title = "Rezerwacje";
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/manage-reservations.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container manage-container">
+    <h2>Rezerwacje</h2>
+
+    @Html.ActionLink("Przejdź do zamówień", "Manage", "Order", null, new { })
+
+    @if (Model.Any())
+    {
+        foreach (var reservation in Model)
+        {
+            <hr />
+            <div>Dzień i godzina: @reservation.ReservationDateTime</div>
+            <div>Telefon kontaktowy: @reservation.PhoneNumber</div>
+            <div>Imię: @reservation.FirstName</div>
+            <div>Nazwisko: @reservation.LastName</div>
+            <div>Email: @reservation.Mail</div>
+            @Html.ActionLink("Usuń", "Delete", new { id = reservation.ReservationId }, new { @class = "btn btn-danger manage-button" })
+        }
+    }
+    else
+    {
+        <h2 class="text-empty">Aktualnie brak rezerwacji</h2>
+    }
+</div>

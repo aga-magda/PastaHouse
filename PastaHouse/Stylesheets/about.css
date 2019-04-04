@@ -1,0 +1,240 @@
+html,
+body {
+    font-family: 'Lato';
+    width: 100%;
+    font-size: 16px;
+}
+
+/* ----------------------------------------------------------- */
+
+/* PHOTO */
+
+/* ----------------------------------------------------------- */
+
+.row {
+    margin: 0;
+}
+
+.photo-restaurant {
+    height: 75vh;
+    background: url(../Resources/img/restaurant-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.food-promise {
+    background-color: #1f1f1f;
+    background-size: cover;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+    .food-promise h1 {
+        font-family: Arial;
+        font-weight: 800;
+        font-size: 4.5em;
+        color: #fff;
+    }
+
+.cuisine-intro {
+    position: static !important;
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+    .cuisine-intro p {
+        width: 35vw;
+        margin: auto;
+        color: #fff;
+        font-weight: 300;
+        font-size: 1.4em;
+    }
+
+.underline-white {
+    height: 15%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: url(../Resources/img/underline-white.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/* ----------------------------------------------------------- */
+
+/* CUISINE */
+
+/* ----------------------------------------------------------- */
+
+.cuisine {
+    padding: 100px 50px;
+}
+
+.cuisine-box,
+.img-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cuisine-box {
+    margin: 200px 0;
+}
+
+.img-box {
+    margin: auto;
+    visibility: hidden;
+}
+
+.in-view {
+    visibility: visible;
+}
+
+.breakfast {
+    background: url(../Resources/img/panini.jpg);
+    height: 320px;
+}
+
+.pasta {
+    background: url(../Resources/img/pasta.jpg);
+    height: 280px;
+}
+
+.pizza {
+    background: url(../Resources/img/pizza.jpg);
+    height: 220px;
+}
+
+.pizza,
+.pasta,
+.breakfast {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cuisine-content h2 {
+    font-family: Arial;
+    font-size: 4em;
+    font-weight: 900;
+}
+
+h2:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 5px;
+    background: #525252;
+}
+
+.cuisine-content p {
+    padding-right: 200px;
+    font-size: 1.3em;
+    font-weight: 300;
+}
+
+
+/* ----------------------------------------------------------- */
+
+/* MEDIA QUERY RESPONSIVENESS */
+
+/* ----------------------------------------------------------- */
+
+/******* < 1200px  *******/
+
+
+@media screen and (max-width: 1200px) {
+    .cuisine-box {
+        margin-top: 3%;
+        margin-bottom: 15%;
+    }
+
+    .cuisine-content h2 {
+        text-align: center;
+    }
+
+    h2:after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cuisine-content p {
+        text-align: center;
+        padding: 0 200px;
+    }
+
+    .cuisine-intro p {
+        width: 70vw;
+    }
+}
+
+
+/******* < 992px  *******/
+
+@media screen and (max-width: 992px) {
+    .cuisine-content p {
+        padding: 0 100px;
+    }
+
+    .cuisine-intro p {
+        width: 70vw;
+    }
+}
+
+
+/******* < 768px  *******/
+
+@media screen and (max-width: 768px) {
+    .breakfast {
+        height: 288px;
+    }
+
+    .pasta {
+        height: 252px;
+    }
+
+    .pizza {
+        height: 198px;
+    }
+
+    .cuisine-content p {
+        padding: 0;
+    }
+
+    .food-promise h1 {
+        font-size: 3em;
+        ;
+    }
+
+    .cuisine-content h2 {
+        font-size: 3em;
+    }
+
+    .cuisine-content p {
+        font-size: 1.1em;
+    }
+
+    .cuisine-intro p {
+        font-size: 1.2em;
+    }
+
+}
+
+
+/******* < 576px  *******/
+
+@media screen and (max-width: 576px) {
+
+    .cuisine-content p {
+        padding: 0;
+        font-size: 1em;
+    }
+
+    .cuisine {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}

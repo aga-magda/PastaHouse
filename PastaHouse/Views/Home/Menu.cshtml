@@ -1,0 +1,91 @@
+﻿@model IEnumerable<PastaHouse.Models.Dish>
+
+@{
+    ViewBag.Title = "Menu";
+    PastaHouse.Models.Cart cart;
+    if (Session["cart"] != null)
+    {
+        cart = Session["cart"] as PastaHouse.Models.Cart;
+    }
+    else
+    {
+        cart = new PastaHouse.Models.Cart();
+    }
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/menu.css")" rel="stylesheet" type="text/css" />
+}
+
+
+<div class="container-fluid menu-container">
+
+    <div id="menuCart">
+        @Html.Partial("_MenuCart", cart)
+    </div>
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-breakfast-tab" data-toggle="tab" href="#nav-breakfast" role="tab" aria-controls="nav-breakfast" aria-selected="true">ŚNIADANIA</a>
+            <a class="nav-item nav-link" id="nav-appetizer-tab" data-toggle="tab" href="#nav-appetizer" role="tab" aria-controls="nav-appetizer" aria-selected="false">PRZYSTAWKI</a>
+            <a class="nav-item nav-link" id="nav-pasta-tab" data-toggle="tab" href="#nav-pasta" role="tab" aria-controls="nav-pasta" aria-selected="false">MAKARONY</a>
+            <a class="nav-item nav-link" id="nav-entree-tab" data-toggle="tab" href="#nav-entree" role="tab" aria-controls="nav-entree" aria-selected="false">DANIA GŁÓWNE</a>
+            <a class="nav-item nav-link" id="nav-drink-tab" data-toggle="tab" href="#nav-drink" role="tab" aria-controls="nav-drink" aria-selected="false">NAPOJE</a>
+        </div>
+    </nav>
+
+    <div class="tab-content" id="nav-tabContent">
+
+        <div class="tab-pane fade show active" id="nav-breakfast" role="tabpanel" aria-labelledby="nav-breakfast-tab">
+            @{string[] SubcategoriesBreakfast = { "Puccia", "Pancakes", "Uova" }; }
+
+            @foreach (var subcategory in SubcategoriesBreakfast)
+            {
+                @Html.Partial("_MenuSubcategoryItem", Model, new ViewDataDictionary { { "subcategory", subcategory } })
+            }
+        </div>
+
+        <div class="tab-pane fade" id="nav-appetizer" role="tabpanel" aria-labelledby="nav-appetizer-tab">
+            @{string[] SubcategoriesAppetizer = { "Przystawki" }; }
+
+            @foreach (var subcategory in SubcategoriesAppetizer)
+            {
+                @Html.Partial("_MenuSubcategoryItem", Model, new ViewDataDictionary { { "subcategory", subcategory } })
+            }
+        </div>
+
+        <div class="tab-pane fade" id="nav-pasta" role="tabpanel" aria-labelledby="nav-pasta-tab">
+            @{string[] SubcategoriesPasta = { "Makarony" }; }
+
+            @foreach (var subcategory in SubcategoriesPasta)
+            {
+                @Html.Partial("_MenuSubcategoryItem", Model, new ViewDataDictionary { { "subcategory", subcategory } })
+            }
+        </div>
+
+        <div class="tab-pane fade" id="nav-entree" role="tabpanel" aria-labelledby="nav-entree-tab">
+            @{string[] SubcategoriesMaindishes = { "Gnocchi", "Polenty", "Zupy", "Menu dla dzieci" }; }
+
+            @foreach (var subcategory in SubcategoriesMaindishes)
+            {
+                @Html.Partial("_MenuSubcategoryItem", Model, new ViewDataDictionary { { "subcategory", subcategory } })
+            }
+        </div>
+
+        <div class="tab-pane fade" id="nav-drink" role="tabpanel" aria-labelledby="nav-drink-tab">
+            @{string[] SubcategoriesDrinks = { "Wino białe", "Wino czerwone", "Piwo", "Cydr", "Napoje zimne", "Lemoniada", "Napoje gorące" }; }
+
+            @foreach (var subcategory in SubcategoriesDrinks)
+            {
+                @Html.Partial("_MenuSubcategoryItem", Model, new ViewDataDictionary { { "subcategory", subcategory } })
+            }
+        </div>
+
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/menu.js"></script>    
+}
+
+    

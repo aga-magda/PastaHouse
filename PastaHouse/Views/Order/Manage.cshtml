@@ -1,0 +1,33 @@
+﻿@model List<PastaHouse.Models.Order>
+@{
+    ViewBag.Title = "Zamówienia";
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/manage-orders.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container manage-container">
+    <h2>Zamówienia</h2>
+
+    @Html.ActionLink("Przejdź do rezerwacji", "Manage", "Reservation", null, new { })
+
+    @if (Model.Any())
+    {
+        foreach (var order in Model)
+        {
+            <hr />
+            @Html.Partial("_OrderPartial", order)
+            if (order.IsActive)
+            {
+                @Html.ActionLink("Oznacz jako zrealizowane", "Deactivate", new { id = order.OrderId }, new { @class = "btn btn-secondary manage-button deactivate-button" })
+            }
+            @Html.ActionLink("Usuń", "Delete", new { id = order.OrderId }, new { @class = "btn btn-danger manage-button" })
+        }
+    }
+    else
+    {
+        <h2 class="text-empty">Aktualnie brak zamówień</h2>
+    }
+</div>
+

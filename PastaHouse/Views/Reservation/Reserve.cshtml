@@ -1,0 +1,48 @@
+﻿@model PastaHouse.Models.Reservation
+@{
+    ViewBag.Title = "Rezerwacja";
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/reserve.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container-fluid my-container">
+    <div class="info">
+        <div class="info-inside">
+            <h3>Podaj dane</h3>
+
+            <div>Wybrana data i godzina: @Model.ReservationDateTime</div>
+            <div style="font-weight:bold;">Stolik dla @Model.Table.NumberOfSeats osób.</div>
+            <br />
+
+            <div>
+                @using (Html.BeginForm("Reserve", "Reservation"))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(a => a.ReservationDateTime, new { value = Model.ReservationDateTime })
+                    @Html.HiddenFor(a => a.TableId, new { value = Model.TableId })
+                    @Html.HiddenFor(a => a.Table.NumberOfSeats, new { value = Model.Table.NumberOfSeats })
+
+                    foreach (var property in ViewData.ModelMetadata.Properties)
+                    {
+                        if (property.PropertyName != "ReservationId" && property.PropertyName != "ReservationDateTime" && property.PropertyName != "TableId" && property.PropertyName != "Table")
+                        {
+                            @Html.Label(property.DisplayName)
+                            <br />
+                            @Html.Editor(property.PropertyName, new { htmlAttributes = new { @class = "form-control" }, })
+                            @Html.ValidationMessage(property.PropertyName)
+                            <br />
+                        }
+                    }
+                    <input type="submit" value="Zarezerwuj" class="btn btn-success button-final-reserve" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/jqueryval")
+}

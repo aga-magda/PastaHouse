@@ -1,0 +1,14 @@
+﻿@model PastaHouse.Models.Cart
+@{
+    Layout = null;
+}
+
+<div class="cart-partial">
+    <h1 class="total-price-header" style="display:inline-block;"><i class="ion-android-cart"></i> @Model.TotalPrice</h1>
+
+    @if (Model.TotalPrice > 0)
+    {
+        @Ajax.ActionLink("Wyczyść", "ClearCart", "Home", null, new AjaxOptions() { UpdateTargetId = "menuCart" }, new { @class = "btn btn-danger cart-btn", id = "clear-cart" })
+        @Html.ActionLink("Zamów", "Index", "Order", null, new { @class = "btn btn-success cart-btn" })
+    }
+</div>

@@ -1,0 +1,21 @@
+﻿.manage-container {
+    padding: 50px;
+    margin-bottom: 20px;
+}
+
+.manage-button {
+    margin-top: 10px;
+}
+
+.text-empty {
+    text-align: center;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 576px) {
+    .manage-container {
+        padding: 15px;
+        padding-top: 50px;
+        margin-bottom: 50px;
+    }
+}

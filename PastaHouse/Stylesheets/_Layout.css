@@ -1,0 +1,183 @@
+﻿/*Body content*/
+
+.body-content {
+    height: 100%;
+    width: 100%;
+}
+
+/*Overlay*/
+
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-y: hidden;
+    transition: 0.3s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 16%;
+    text-align: center;
+    line-height: 0.8;
+}
+
+.overlay a {
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 96px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+    .overlay a:hover, .overlay a:focus {
+        color: #99d5c9;
+    }
+
+.open {
+    height: 100%;
+}
+
+/*Navigation button*/
+
+.close-container {
+    position: fixed;
+    top: 7px;
+    right: 10px;
+    z-index: 1030;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+    background-color: white;
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+    background-color: white;
+}
+
+/*Logo (upper-left corner) */
+
+#logo {
+    position: fixed;
+    z-index: 900;
+    width: 200px;
+    margin-top: 5px;
+    margin-left: 15px;
+    font-size: 1.7em;
+    font-weight: bold;
+    font-family: 'Lato';
+    cursor: pointer;
+}
+
+/*_LoginPartial*/
+
+.admin-panel {
+    position: fixed;
+    font-size: 1.7em;
+    right: 60px;
+    top: 5px;
+    z-index: 900;
+}
+
+    .admin-panel a {
+        text-decoration: none;
+        color: #333;
+    }
+
+/*Footer*/
+
+.footer {
+    margin: 0;
+    padding: 0;
+    height: 5%;
+    background-color: #1f1f1f;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.social-links {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-right: 20px;
+}
+
+li {
+    display: block;
+    float: right;
+    font-size: 2em;
+    margin: 10px;
+}
+
+ul {
+    line-height: 0;
+}
+
+li a {
+    color: #fff;
+    opacity: 0.8;
+}
+
+.ion-social-facebook,
+.ion-social-twitter,
+.ion-social-googleplus,
+.ion-social-instagram {
+    -webkit-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+
+    .ion-social-facebook:hover,
+    .ion-social-twitter:hover,
+    .ion-social-googleplus:hover,
+    .ion-social-instagram:hover {
+        color: #8f8f8f;
+    }
+
+/*Mobile*/
+
+@media only screen and (max-width: 768px), only screen and (max-height: 400px) {
+    .overlay a {
+        font-size: 46px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    li {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .footer {
+        height: 7%;
+    }
+}

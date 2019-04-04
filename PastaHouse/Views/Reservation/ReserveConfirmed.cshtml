@@ -1,0 +1,36 @@
+﻿@model PastaHouse.Models.Reservation
+@{
+    ViewBag.Title = "Potwierdzenie";
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/reserve.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container-fluid my-container">
+    <div class="info">
+        <div class="info-inside">
+            <h3>Rezerwacja potwierdzona</h3>
+
+            <h2>Twoja rezerwacja:</h2>
+            <div>
+                <div>Dzień i godzina: @Model.ReservationDateTime</div>
+                <div>Telefon kontaktowy: @Model.PhoneNumber</div>
+                <div>Imię: @Model.FirstName</div>
+                <div>Nazwisko: @Model.LastName</div>
+                <div>
+                    Email:
+                    @if (Model.Mail == null)
+                    {
+                        <span>Nie podano</span>
+                    }
+                    else
+                    {
+                        @Model.Mail
+                    }
+                </div>
+                @Html.ActionLink("Powrót", "Index", null, new { @class = "btn btn-info button-final-reserve" })
+            </div>
+        </div>
+    </div>
+</div>

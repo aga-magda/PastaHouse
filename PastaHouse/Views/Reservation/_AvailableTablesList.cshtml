@@ -1,0 +1,22 @@
+﻿@model List<PastaHouse.Models.Table>
+@{
+    Layout = null;
+}
+
+@if (Model.Any())
+{
+    foreach (var table in Model)
+    {
+        <div class="table-list-element">
+            Numer stolika: @table.TableId |
+            Liczba miejsc: @table.NumberOfSeats
+            @Html.ActionLink("Zarezerwuj", "Reserve", new { id = table.TableId }, new { @class = "btn btn-success button-reserve" })
+        </div>
+    }
+}
+else
+{
+    <h2>Aktualnie brak wolnych stolików w tym terminie!</h2>
+}
+
+

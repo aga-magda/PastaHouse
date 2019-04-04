@@ -1,0 +1,53 @@
+﻿@model PastaHouse.Models.Order
+@{
+    ViewBag.Title = "Potwierdzenie";
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/order-index.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container-fluid my-container">
+    <div class="info">
+        <div class="info-inside">
+            <h3>Zamówienie potwierdzone</h3>
+
+            <div class="chosen-dishes">
+                <h4>Wybrane dania:</h4>
+                @{
+                    List<string> dishesNames = new List<string>();
+
+                    foreach (PastaHouse.Models.Dish dish in Model.Cart.Dishes)
+                    {
+                        if (!(dishesNames.Contains(dish.Name)))
+                        {
+                            var count = Model.Cart.Dishes.FindAll(x => x.Name == dish.Name).Count;
+                            <div class="row dish-line">
+                                <div class="col-12">
+                                    <div class="row dish-info">
+                                        <div class="col-12 col-sm-6">@dish.Name</div>
+                                        <div class="col-12 col-sm-6">@count szt.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        dishesNames.Add(dish.Name);
+                    }
+                }
+            </div>
+            <h4>Twoje dane:</h4>
+            <div>
+                <div>Imię: @Model.Client.Name</div>
+                <div>Nazwisko: @Model.Client.Surname</div>
+                <div>Miasto: @Model.Client.City</div>
+                <div>Ulica: @Model.Client.Street</div>
+                <div>Numer domu: @Model.Client.HomeNumber</div>
+                <div>Numer mieszkania: @Model.Client.LocalNumber</div>
+                <div>Telefon: @Model.Client.Telephone</div>
+                <div class="font-weight-bold">Kwota do zapłaty: @Model.Cart.TotalPrice</div>
+                @Html.ActionLink("Powrót", "Index", null, new { @class = "btn btn-info button-final-reserve" })
+            </div>
+        </div>
+    </div>
+</div>

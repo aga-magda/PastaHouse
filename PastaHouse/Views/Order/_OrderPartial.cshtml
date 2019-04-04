@@ -1,0 +1,36 @@
+﻿@model PastaHouse.Models.Order
+@{
+    Layout = null;
+}
+
+<div class="row @(Model.IsActive == false ? "deactivated" : "")">
+    <div class="col-sm-6">
+        <h6>@Model.Client.Name @Model.Client.Surname</h6>
+        <div>Data zamówienia: @Model.OrderDateTime</div>
+        <div>Nr telefonu: @Model.Client.Telephone</div>
+        <div class="row">
+            <div class="col-2">
+                Adres:
+            </div>
+            <div class="col-10">
+                <div>
+                    @Model.Client.Street @Model.Client.HomeNumber
+                </div>
+                <div>
+                    @Model.Client.City
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <h6 class="cart-value">Wartość koszyka: @Model.Cart.TotalPrice zł</h6>
+        @{int i = 1;}
+        @foreach (var dish in Model.Cart.Dishes)
+        {
+            <div>
+                @i. @dish.Name | @dish.Price zł
+            </div>
+            i++;
+        }
+    </div>
+</div>

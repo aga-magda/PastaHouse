@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Kontakt";
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/contact.css")" rel="stylesheet" type="text/css" />
+}
+
+
+<div class="container-fluid container-contact">
+    <div class="info">
+        <div class="info-inside">
+            <h3>GODZINY OTWARCIA</h3>
+            <p>
+                Poniedziałek -  Piątek &emsp; 8:00 - 21:00<br>
+                Sobota - Niedziela &emsp; 10:00 - 22:00
+                <br> Menu śniadaniowe &emsp; do 11:00
+                <br>
+                <br>
+            </p>
+            <h3>KONTAKT</h3>
+            <p>
+                Email: &ensp; info@pastahouse.com <br>
+                Telefon: &ensp; 505-322-111
+            </p>
+        </div>
+    </div>
+
+    <div class="map-button">
+        <div class="map" id="map"></div>
+        <div class="button">
+            <p>WSKAZÓWKI DOJAZDU</p>
+            <a target="_blank" href="https://www.google.com/maps/dir/?api=1&destination=54.44491204,18.55316081"></a>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/contact.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmcPGJkJ2Tfeq9z0vX-LyCYA7i48_Z0jY&callback=initMap" async defer></script>
+}
+
+

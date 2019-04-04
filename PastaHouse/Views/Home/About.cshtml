@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "O nas";
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/about.css")" rel="stylesheet" type="text/css" />
+}
+
+
+<div class="container-fluid food-promise">
+    <div class="row photo-restaurant"></div>
+    <div class="row text-center">
+        <div class="col cuisine-intro">
+            <h1>NASZA KUCHNIA</h1>
+            <div class="underline-white"></div>
+            <p>
+                Świeże składniki to u nas podstawa. Nasze dania przechodzą przez proces od surowych produktów do potraw, które serwujemy Wam na talerzu.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid cuisine">
+    <div class="row">
+        <div class="col-xl-6 img-box breakfast"></div>
+        <div class="col-xl-6 cuisine-box">
+            <div class="cuisine-content">
+                <h2>Śniadania</h2>
+                <p>
+                    Zacznij dobrze nowy dzień od śniadania w Pasta House!
+                    Śniadania w Bresno serwujemy codziennie! Nasze dania połączyliśmy w atrakcyjne zestawy
+                    z dowolną kawą, herbatą lub lemoniadą. Wybierz to, na co dziś masz ochotę – tradycyjnie, po włosku lub na słodko.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6 img-box pasta"></div>
+        <div class="col-xl-6 cuisine-box">
+            <div class="cuisine-content">
+                <h2>Makarony</h2>
+                <p>
+                    Doskonała pasta to coś więcej niż al dente. Dania przygotowywane od podstaw z najlepszych składników.
+                    Autentyczne regionalne dodatki sprowadzane z Włoch i bogactwo aromatycznych przypraw. Idealna tekstura sosu
+                    otaczającego makaron w wersji tradycyjnej lub pełnoziarnistej.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-6 img-box pizza"></div>
+        <div class="col-xl-6 cuisine-box">
+            <div class="cuisine-content">
+                <h2>Pizza</h2>
+                <p>
+                    Nasze ciasto na pizzę przygotowujemy według tradycyjnej receptury neapolitańskiej, z oryginalnej włoskiej
+                    mąki doppio zero, do której dodajemy jedynie wodę, sól i odrobinę drożdży. Używamy włoskich pomidorów,
+                    mozzarelli i wędlin. Jedz powoli, do ostatniego okruszka.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/Scripts/about.js"></script>
+}
+

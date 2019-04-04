@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PastaHouse.Models.Dish>
+@{
+    Layout = null;
+    var subcategory = ViewData["subcategory"] as string;
+
+    PastaHouse.Models.Cart cart;
+    if (Session["cart"] != null)
+    {
+        cart = Session["cart"] as PastaHouse.Models.Cart;
+    }
+    else
+    {
+        cart = new PastaHouse.Models.Cart();
+    }
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/contact.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="row subcategory">
+    <div class="col-lg-3 col-12 subcategory-name">
+        @subcategory
+    </div>
+    <div class="col-lg-9 col-12">
+        @foreach (var item in Model)
+        {
+            if (subcategory == item.Subcategory)
+            {
+                <div class="row dish">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-8 dish-name">
+                                <div>@item.Name</div>
+                                <div>@item.Price zł</div>
+                            </div>
+                            <div class="col-4 dish-button">
+                                @{
+                                    var DishNumber = cart.Dishes.FindAll(x => x.DishId == item.DishId).Count;
+                                }
+
+                                @Ajax.ActionLink($"+ | " + DishNumber, "AddProduct", "Home", new { id = item.DishId, name = item.Name, category = item.Category, subcategory = item.Subcategory, ingredients = item.Ingredients, price = item.Price }, new AjaxOptions() { UpdateTargetId = "menuCart" }, new { @class = "btn btn-success btn-primary btn-plus", id = "plus" + item.DishId })
+                                @Ajax.ActionLink($"-", "DeleteProduct", "Home", new { id = item.DishId }, new AjaxOptions() { UpdateTargetId = "menuCart" }, new { @class = "btn btn-danger btn-primary btn-minus", id = "minus" + item.DishId })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 dish-ingredients">@item.Ingredients</div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+
+
+
+
+

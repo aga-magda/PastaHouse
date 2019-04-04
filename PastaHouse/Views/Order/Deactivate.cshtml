@@ -1,0 +1,27 @@
+﻿@model PastaHouse.Models.Order
+@{
+    ViewBag.Title = "Zamówienie";
+    Model.IsActive = true;
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/manage-orders.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container manage-container">
+    <h2>Oznacz jako zrealizowane</h2>
+
+    <h5>Czy na pewno chcesz oznaczyć zamówienie jako zrealizowane?</h5>
+
+    @using (Html.BeginForm("Deactivate", "Order"))
+    {
+        @Html.AntiForgeryToken()
+        <br />
+
+        @Html.Partial("_OrderPartial")
+
+        <br />
+        <input type="submit" value="Tak" class="btn btn-danger manage-button" />
+        @Html.ActionLink("Nie", "Manage", null, new { @class = "btn btn-info manage-button" })
+    }
+</div>

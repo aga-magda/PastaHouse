@@ -1,0 +1,26 @@
+﻿@model PastaHouse.Models.Reservation
+@{
+    ViewBag.Title = "Usuń";
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/manage-reservations.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="container manage-container">
+    <h2>Usuń</h2>
+
+    <h5>Czy na pewno chcesz usunąć wybraną rezerwację?</h5>
+
+    @using (Html.BeginForm("Delete", "Reservation"))
+    {
+        @Html.AntiForgeryToken()
+        <div>Dzień i godzina: @Model.ReservationDateTime</div>
+        <div>Telefon kontaktowy: @Model.PhoneNumber</div>
+        <div>Imię: @Model.FirstName</div>
+        <div>Nazwisko: @Model.LastName</div>
+        <div>Email: @Model.Mail</div>
+        <input type="submit" value="Tak" class="btn btn-danger manage-button" />
+        @Html.ActionLink("Nie", "Manage", null, new { @class = "btn btn-info manage-button" })
+    }
+</div>

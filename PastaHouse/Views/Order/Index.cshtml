@@ -1,0 +1,50 @@
+﻿@model PastaHouse.Models.Client
+@{
+    ViewBag.Title = "Zamówienie";
+    PastaHouse.Models.Cart cart = Session["cart"] as PastaHouse.Models.Cart;
+}
+
+@section Stylesheets {
+    <link href="@Url.Content("~/stylesheets/order-index.css")" rel="stylesheet" type="text/css" />
+}
+
+
+<div class="container-fluid my-container">
+    <div class="info">
+        <div class="info-inside">
+            <h3 class="my-3">Podsumowanie</h3>
+
+            <div>@Html.ActionLink("Wróć", "Menu", "Home", null, new { @class = "btn btn-primary" })</div>
+
+
+            <div class="chosen-dishes" id="chosen-dishes">
+                @Html.Partial("_IndexPartial", cart)
+            </div>
+
+            <h4>Podaj swoje dane:</h4>
+
+            @using (Html.BeginForm("Index", "Order"))
+            {
+                @Html.AntiForgeryToken()
+
+                foreach (var property in ViewData.ModelMetadata.Properties)
+                {
+                    if (property.PropertyName != "ClientId")
+                    {
+                        @Html.Label(property.DisplayName)
+                        <br />
+                        @Html.Editor(property.PropertyName, new { htmlAttributes = new { @class = "form-control" }, })
+                        @Html.ValidationMessage(property.PropertyName)
+                        <br />
+                    }
+                }
+                <input type="submit" value="Zamów" class="btn btn-success" />
+            }
+            <br />
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/order.js"></script>
+}

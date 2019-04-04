@@ -1,0 +1,222 @@
+html,
+body {
+    font-family: 'Lato';
+    font-size: 16px;
+    padding-bottom: 25px;
+}
+
+
+/* ----------------------------------------------------------- */
+
+/* TABS */
+
+/* ----------------------------------------------------------- */
+
+.menu-container {
+    padding-top: 100px;
+    width: 70vw;
+}
+
+#nav-breakfast-tab,
+#nav-appetizer-tab,
+#nav-pasta-tab,
+#nav-entree-tab,
+#nav-drink-tab {
+    color: #fff;
+    font-weight: 600;
+    background-color: #99d5c9;
+}
+
+    #nav-breakfast-tab:focus,
+    #nav-appetizer-tab:focus,
+    #nav-pasta-tab:focus,
+    #nav-entree-tab:focus,
+    #nav-drink-tab:focus {
+        background-color: #404040;
+    }
+
+
+.nav-tabs .nav-link {
+    border: 0px;
+}
+
+.nav-link {
+    margin: 0% 0.2%;
+    text-align: center;
+    padding: 0.7rem 0.5rem;
+    width: 19.6%;
+}
+
+
+/* ----------------------------------------------------------- */
+
+/* MENU */
+
+/* ----------------------------------------------------------- */
+.subcategory {
+    margin-top: 2.5%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1rem 0;
+}
+
+.subcategory-name {
+    font-size: 1.6em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #99d5c9;
+}
+
+
+.dish {
+    margin: 0 0 2.5% 0;
+    border: solid 1px #dddddd;
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.dish-name {
+    font-size: 1.3em;
+    font-weight: 550;
+}
+
+.dish-ingredients {
+    font-size: 1em;
+    font-weight: 300;
+    margin-top: 2%;
+}
+
+.dish-button {
+    text-align: right;
+    padding: 0;
+}
+
+.btn-danger, .btn-success {
+    color: #fff;
+    background-color: #a4a4a4;
+    border-color: #a4a4a4;
+    margin-left: 5px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #a4a4a4;
+    border-color: #a4a4a4;
+    width: 60px;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.cart-partial {
+    height: 50px;
+}
+
+.total-price-header {
+    color: #212529;
+    font-size: 1.8em;
+    vertical-align: middle;
+}
+
+
+/* ----------------------------------------------------------- */
+/* MEDIA QUERY RESPONSIVENESS */
+/* ----------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+}
+
+
+
+/******* < 992px  *******/
+@media screen and (max-width: 992px) {
+    .menu-container {
+        padding-top: 70px;
+    }
+
+    .nav-link {
+        margin: 4px 0;
+        width: 100%;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .nav-tabs .nav-link {
+        border-bottom-left-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+    }
+
+    .col-9 {
+        max-width: 70%;
+    }
+
+    .col-3 {
+        max-width: 30%;
+    }
+}
+
+
+/******* < 768px  *******/
+
+@media screen and (max-width: 768px) {
+    .menu-container {
+        width: 86vw;
+    }
+
+    .col-9 {
+        max-width: 60%;
+    }
+
+    .col-3 {
+        max-width: 40%;
+    }
+
+    .cart-partial {
+        text-align: center;
+    }
+}
+
+/******* < 576px  *******/
+
+@media screen and (max-width: 576px) {
+    .menu-container {
+        width: 95vw;
+    }
+
+    .col-9 {
+        max-width: 65%;
+    }
+
+    .col-3 {
+        max-width: 35%;
+    }
+
+    .dish {
+        padding: 1.5rem;
+    }
+
+    .dish-name {
+        font-size: 1.1em;
+    }
+
+    .btn-primary {
+        width: 50px;
+        margin: 1px;
+        font-size: 1rem;
+    }
+}
+
+
+/******* < 460px  *******/
+
+@media screen and (max-width: 460px) {
+    .col-9 {
+        max-width: 50%;
+    }
+
+    .col-3 {
+        max-width: 50%;
+    }
+
+    .cart-btn {
+        font-size: 0.9em;
+    }
+}

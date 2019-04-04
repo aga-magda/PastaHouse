@@ -1,0 +1,90 @@
+﻿html,
+body,
+.background-top,
+.background-bottom {
+    height: 100%;
+    margin: 0;
+}
+
+/* ----------------------------------------------------------- */
+
+/* BACKGROUND */
+
+/* ----------------------------------------------------------- */
+
+body {
+    background-color: #99d5c9;
+}
+
+
+.background-top {
+    animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
+    background: url(../../Resources/img/bg-top.svg);
+    background-size: cover;
+    opacity: 0;
+}
+
+
+
+.background-bottom {
+    animation: fade-slide-down 2.2s .5s cubic-bezier(0, 0.7, 0, 1.1) forwards;
+    width: 100%;
+    background: url(../../Resources/img/bg-down.svg);
+    background-size: cover;
+    opacity: 0;
+}
+
+
+
+.background-top,
+.background-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+}
+
+
+/* ----------------------------------------------------------- */
+
+/* LOGO */
+
+/* ----------------------------------------------------------- */
+
+.logo-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+    .logo-img img {
+        -moz-animation-duration: 1.6s;
+        -o-animation-duration: 1.6s;
+        -webkit-animation-duration: 1.6s;
+        animation-duration: 1.6s;
+        animation-delay: 0.25s;
+        width: 45vw;
+        max-width: 400px;
+    }
+
+/* ----------------------------------------------------------- */
+
+/* ANIMATION */
+
+/* ----------------------------------------------------------- */
+
+@keyframes fade-slide-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-4rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
